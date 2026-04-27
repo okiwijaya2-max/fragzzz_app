@@ -206,6 +206,7 @@ Route::middleware('admin.auth')->group(function () {
         if (isset($validated['id']) && $validated['id']) {
             Cache::forget("perfume_{$validated['id']}");
             $p = Perfume::findOrFail($validated['id']);
+            unset($validated['id']);
             $p->update($validated);
             return $p;
         }

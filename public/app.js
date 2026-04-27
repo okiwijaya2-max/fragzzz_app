@@ -24,7 +24,11 @@ const API = {
         if (res.status === 401) { App.handleUnauthorized(); throw new Error('Unauthorized'); }
         const result = await res.json();
         if (!res.ok) {
-            throw new Error(result.error || 'Something went wrong');
+            if (result.errors) {
+                const msg = Object.values(result.errors).flat().join('\n');
+                throw new Error(msg);
+            }
+            throw new Error(result.error || result.message || 'Something went wrong');
         }
         return result;
     },
@@ -720,11 +724,13 @@ const App = {
         `;
     },
 
-    editPerfume(id) {
-        let perfumes = window.__PERFUMES__ || [];
-        // id dynamically converts
-        const p = perfumes.find(p => p.id == id);
-        if(p) this.showAddPerfumeForm(p);
+    async editPerfume(id) {
+        try {
+            const p = await API.get('perfumes/' + id);
+            if(p) this.showAddPerfumeForm(p);
+        } catch (err) {
+            alert('Error loading perfume details: ' + err.message);
+        }
     },
 
     async savePerfume(e, id) {
@@ -878,10 +884,13 @@ const App = {
         document.getElementById('blog-form-content-input').value = blog ? blog.content : '';
     },
 
-    editBlog(id) {
-        let blogs = window.__BLOGS__ || [];
-        const b = blogs.find(b => b.id == id);
-        if(b) this.showBlogForm(b);
+    async editBlog(id) {
+        try {
+            const b = await API.get('blogs/' + id);
+            if(b) this.showBlogForm(b);
+        } catch (err) {
+            alert('Error loading blog details: ' + err.message);
+        }
     },
 
     async deleteBlog(id) {
