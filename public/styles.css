@@ -407,3 +407,91 @@ footer {
     font-weight: 600;
     opacity: 0.7;
 }
+
+/* Responsive layout classes */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.social-icons {
+    display: flex;
+    gap: 15px;
+    font-size: 1.2rem;
+}
+.perfume-detail-layout {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.dupe-item-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+.dupe-item-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    min-width: 180px;
+}
+
+/* Media Queries for Mobile/Tablet */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+    .nav-right {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero p {
+        font-size: 1.1rem;
+    }
+    .search-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .search-bar button {
+        width: 100%;
+        margin-top: 10px;
+    }
+    #app-content {
+        padding: 20px 5%;
+    }
+    .admin-layout {
+        flex-direction: column;
+    }
+    .admin-sidebar {
+        width: 100%;
+    }
+    .blog-container {
+        flex-direction: column;
+    }
+    .blog-sidebar {
+        max-width: 100%;
+    }
+    .dupe-item-content {
+        flex-direction: column;
+    }
+    .dupe-item-actions {
+        align-items: stretch;
+        width: 100%;
+        min-width: unset;
+        margin-top: 15px;
+    }
+    .dupe-item-actions .btn {
+        text-align: center;
+    }
+}

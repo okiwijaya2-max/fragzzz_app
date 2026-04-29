@@ -37,13 +37,13 @@
         <div class="nav-brand">
             <a href="/" class="logo">FRAGZZZ</a>
         </div>
-        <div style="display: flex; align-items: center; gap: 20px;">
+        <div class="nav-right">
             <div class="nav-links">
                 <a href="/" class="nav-link">Home</a>
                 <a href="/blog" class="nav-link">Blog</a>
                 <a href="/merch" class="nav-link">Our Merch</a>
             </div>
-            <div id="social-icons" style="display: flex; gap: 15px; font-size: 1.2rem;">
+            <div id="social-icons" class="social-icons">
                 <!-- Dynamically filled -->
             </div>
         </div>

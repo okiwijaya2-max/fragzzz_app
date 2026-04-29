@@ -275,7 +275,7 @@ const App = {
                 const vid3 = vid3Id ? `<iframe width="100%" height="200" src="https://www.youtube.com/embed/${vid3Id}" frameborder="0" allowfullscreen style="border-radius:4px; border: 2px solid #000; margin-top: 10px;"></iframe>` : '';
                 return `
                 <div class="dupe-item" style="border: var(--border-width) solid #000; padding: 20px; margin-bottom: 25px; background: #fff; box-shadow: var(--shadow-solid); border-radius: 8px; display: block;">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 20px;">
+                    <div class="dupe-item-content">
                         <!-- LEFT SIDE: Image + Name + Brand -->
                         <div style="display: flex; flex-direction: column; gap: 10px;">
                             ${d.image ? `<div style="width: 120px; height: 120px; border: 2px solid #000; border-radius: 8px; overflow: hidden; background: #fff; padding: 5px;"><img src="${d.image}" style="width: 100%; height: 100%; object-fit: contain;" loading="lazy"></div>` : ''}
@@ -286,7 +286,7 @@ const App = {
                         </div>
                         
                         <!-- RIGHT SIDE: Price + Buttons (Stacked Vertically) -->
-                        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 10px; min-width: 180px;">
+                        <div class="dupe-item-actions">
                             <div style="font-size: 1.6rem; font-weight: 900; color: #00BFA5; line-height: 1; margin-bottom: 5px;">${d.price}</div>
                             ${d.buy_link ? `<a href="${d.buy_link}" target="_blank" class="btn btn-primary" style="width: 100%; padding: 8px 12px; font-size: 0.8rem;">BUY NOW (GLOBAL)</a>` : ''}
                             ${d.buy_link_indo ? `<a href="${d.buy_link_indo}" target="_blank" class="btn" style="background:#e04f5f; color:#fff; width: 100%; padding: 8px 12px; font-size: 0.8rem;">BUY NOW (INDONESIA)</a>` : ''}
@@ -302,7 +302,7 @@ const App = {
 
         this.contentDiv.innerHTML = `
             <a href="/" class="btn mb-4" style="padding: 5px 15px; font-size: 0.8rem;">&larr; Back Home</a>
-            <div style="display: flex; gap: 40px; flex-wrap: wrap;">
+            <div class="perfume-detail-layout">
                 <div style="flex: 1; min-width: 300px;">
                     <div style="width: 100%; height: 500px; border: 3px solid #000; border-radius: 8px; overflow: hidden; background: #fff;">
                         <img src="${perfume.image || 'https://via.placeholder.com/300'}" style="width: 100%; height: 100%; object-fit: contain;" alt="${perfume.name} fragrance bottle" loading="lazy">
